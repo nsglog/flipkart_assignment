@@ -1,0 +1,161 @@
+1682050398451:help
+1682050776154:login --username "akhil" --password "jiomerelal"
+1682050837406:login --username "navneet" --password "hello"
+1682050887754:signup --username "navneet" --email "unzip.nav@gmail.com" --password "hellototo"
+1682050936049:login --username "navneet" --password "hellototo"
+1682053858907:help
+1682053880152:login --username "navneet" --password "hellototo"
+1682053884573:help
+1682053900884:help login
+1682056939669:help
+1682057045735:login --username 'navneet' --password 'hellototo'
+1682057053597:help
+1682057420625:login --username navneet --password hellototo
+1682057430759:help
+1682057442021:logout-user
+1682057446044:help
+1682057616323:up-vote-post 1
+1682059601439:login --username unzip.nav@gmail.com --password hellototo
+1682059999155:login --useranme navneet --password hellototo
+1682061550003:login --username --password hellototo
+1682061574022:login --username navneet --password hellototo
+1682061686920:help
+1682061707319:login --u navneet --p hellototo
+1682061712615:help
+1682062319063:login --u navneet --p hellototo
+1682062323600:help
+1682062398498:login --u navneet --password hellototo
+1682062414782:login --u navneet --p hellototo
+1682062417911:help
+1682064709648:logout
+1682064712598:help
+1682064740872:signup --u motabhai --e abc@gujju.com --p lemonlaw
+1682064916469:signup --u cara --e cara@gujju.com --p linklaw
+1682065040905:signup --u a --e b --p c
+1682065575524:signup -u hello -e gim@kim.com -p lemonlaw
+1682065599113:signup --u hello --e gim@kim.com --p lemonlaw
+1682065686830:signup --u u --e e --p p
+1682066375029:signup --u cara --e loco@poco.com --p hello
+1682066410067:signup --u loco --e loco@poco.com --p hello
+1682068402552:signup --u cara --e loco --p hello
+1682068950864:signup --u cara --e loco --pass nahipata
+1682068965442:signup --u cara --e loco --p nahipata
+1682069154477:signup --u hello --e hello@gmail.com --p bye
+1682069241925:signup --u main --e main.com --p bye
+1682069499372:signup --u a --e b --p c
+1682069996023:signup --u hello --e cord --p nahibataunga
+1682138352405:signup --u navneet --e cara@mail.com --p lemonlaw
+1682138360404:shell:>signup --u navneet --e cara@mail.com --p lemonlaw
+1682138388850:signup --u cara --e cara@mail.com --p lemonlaw
+1682138410249:signup --u loco --e hello@mail.com --p lemonlaw
+1682138428376:login --u cara --p lemonlaw
+1682138434578:help
+1682138465686:follow-user --id 1
+1682138482170:follow-user --id 2
+1682139149520:signup --u rooks --e dev@mail.com --p lemonlaw
+1682139183812:login --u rooks --p leminlaw
+1682139197163:login --u rooks --p lemonlaw
+1682139230239:follow-user 3
+1682139237905:follow-user 2
+1682139520630:help
+1682139541971:create-post --text this is my first post
+1682139622600:create-post --text 'this is my second post'
+1682141478125:login --u navneet --p lemonlaw
+1682141482017:help
+1682144536369:hel
+1682144540229:help
+1682144893908:login --u navneet --p lemonlaw
+1682144897588:help
+1682144933321:show-news-feed
+1682144960227:show-news-feed --sortOrder comments
+1682144963816:help
+1682145069153:show-comments-on-post --1
+1682145080931:show-comments-on-post --id 1
+1682145084373:help
+1682145128178:help --a
+1682145133553:help --d
+1682145136168:help
+1682146863482:login --u navneet --p lemonlaw
+1682146866270:help
+1682146888781:show-active-user-list
+1682146891033:help
+1682146937454:follow-user --id 1
+1682146941588:help
+1682147000274:show-news-feed -sortOrder 'comments'
+1682147020712:show-news-feed --sortOrder 'comments'
+1682147022983:help
+1682147155573:login --navneet --p lemonlaw
+1682147169948:login --u navneet --p lemonlaw
+1682147172495:help
+1682147210560:create-post --text 'this will be my second post'
+1682147215674:help
+1682147242162:show-active-user-list
+1682147246826:help
+1682147290099:show-news-feed
+1682147307505:show-news-feed --sortOrder 'myass'
+1682147312619:help
+1682149879925:create-post --text "this is my idk post"
+1682149886410:help
+1682149899281:show-news-feed
+1682149921392:show-news-feed --sortOrder 'klpd'
+1682149930525:help
+1682150004114:show-comment-on-post --id 1
+1682150022562:show-comments-on-post --id 1
+1682150025622:help
+1682152976741:login --u navneet --p lemonlaw
+1682152983772:help
+1682152994879:show-news-feed
+1682153008379:show-news-feed --sortOrder myass
+1682153013146:help
+1682153043474:comment-on-post --id 1 --text 'this is my first comment'
+1682153570550:login --u navneet --p lemonlaw
+1682153578270:help
+1682153596412:show-news-feed --sortOrder 'myass'
+1682153605719:help
+1682153640605:comment-on-post --id 1 --text 'this is my first comment'
+1682153695154:comment-on-post --id 1 --text 'this is my second comment'
+1682153704421:comment-on-post --id 1 --text 'this is my third comment'
+1682153719302:comment-on-post --id 1 --text 'this is my fourth comment'
+1682154269184:login --u navneet --p lemonlaw
+1682154289735:show-news-feed --sortOrder 'myass'
+1682154293127:help
+1682154319833:up-vote-post --id 1
+1682154658558:login --u navneet --p lemonlaw
+1682154674275:show-news-feed --sortOrder ''
+1682154690659:up-vote-post --id 2
+1682155123842:login --u navneet --p lemonlaw
+1682155137972:show-news-feed -sortOrder ''
+1682155152144:show-news-feed --sortOrder ''
+1682155177973:create-post --text 'this is my first post'
+1682155197724:show-news-feed -sortOrder
+1682155207082:show-news-feed --sortOrder
+1682155225936:up-vote-post --id 4
+1682155268911:show-news-feed -sortOrder
+1682155276104:show-news-feed --sortOrder
+1682155306629:comment-on-post --id 4 --text 'this is my first comment'
+1682173248293:login --u navneet --p lemonlaw
+1682173252155:help
+1682173276196:create-post --text 'hello there . this is my testing post'
+1682173349008:show-news-feed --sortOrder 'followed_user'
+1682173452962:login --u navneet --p lemonlaw
+1682173458389:help
+1682173520721:logout
+1682173524372:help
+1682173548360:login --u cara --p lemonlaw
+1682173573972:create-post --text 'this is first post from cara'
+1682173588867:create-post --text 'this is second post from cara'
+1682173597314:create-post --text 'this is third post from cara'
+1682173602009:logout
+1682173616830:login --u navneet --p lemonlaw
+1682173637620:show-news-feed --sortOrder 'followed_user'
+1682173794204:login --u navneet --p lemonlaw
+1682173855710:help
+1682173882120:show-news-feed --sortOrder 'followed_users'
+1682173927914:stacktrace
+1682174271247:login --u navneet --p lemonlaw
+1682174288746:show-news-feed --sortOrder 'followed_users'
+1682174434263:login --u navneet --p lemonlaw
+1682174452964:show-news-feed --sortOrder 'followed_users'
+1682174471376:help\\\n;
+1682174835494:login --u navneet --p lemonlaw
+1682174838216:help
