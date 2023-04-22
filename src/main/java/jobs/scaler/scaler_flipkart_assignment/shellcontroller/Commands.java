@@ -72,10 +72,10 @@ public class Commands {
         canReplyAndVoteComment=false;
     }
 
-    @ShellMethod(value = "follow-user --id 'follow user id'")
+    @ShellMethod(value = "follow-user --u 'username'")
     @ShellMethodAvailability("userLoggedIn")
-    public String followUser (String username) {
-        return userService.followUser(username);
+    public String followUser (String u) {
+        return userService.followUser(u);
     }
 
 
@@ -115,7 +115,7 @@ public class Commands {
     @ShellMethod(value = "up-vote-comment --id 'comment_id'")
     @ShellMethodAvailability("canUserReplyAndVoteOnComment")
     public String upVoteComment (long id) {
-        return userService.upvoteComment(id);
+        return userService.upVoteComment(id);
     }
 
     @ShellMethod(value = "down-vote-comment --id 'comment_id'")

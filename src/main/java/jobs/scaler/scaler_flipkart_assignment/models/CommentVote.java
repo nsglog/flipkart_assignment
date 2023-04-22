@@ -5,27 +5,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @Setter
-@Table(name = "vote")
-public class Vote {
-    @Id
-    @Column(name = "id")
-    private long id;
+@Table(name = "comment_vote")
+public class CommentVote {
+//    @JoinColumn(name = "user_id")
+//    @ManyToOne
+//    private User user;
+//
+//    @JoinColumn(name = "comment_id")
+//    @ManyToOne
+//    private Comment comment;
 
-    @JoinColumn(name = "user_id")
-    @ManyToOne
-    private User user;
-
-    @JoinColumn(name = "post_id")
-    @ManyToOne
-    private Post post;
-
-    @JoinColumn(name = "comment_id")
-    @ManyToOne
-    private Comment comment;
+    @EmbeddedId
+    private CommentVotePrimaryKey commentVotePrimaryKey;
 
     @Column(name = "created_on")
     private LocalDateTime createdOn;

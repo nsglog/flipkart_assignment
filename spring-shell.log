@@ -159,3 +159,98 @@
 1682174471376:help\\\n;
 1682174835494:login --u navneet --p lemonlaw
 1682174838216:help
+1682177056493:signup --u hello --e mail@hellomail.com --p nahipata
+1682177075418:signup --u toto --e mail@hellomail.com --p nahipata
+1682177092043:signup --u prine --e mail@hellomail.com --p nahipata
+1682177099798:signup --u giffe --e mail@hellomail.com --p nahipata
+1682177139346:login --u giffe --p nahipata
+1682177147638:help
+1682177173070:follow-user --id 'prine'
+1682177278500:login --u giffe -p nahipata
+1682177292350:login --u giffe --p nahipata
+1682177326214:follow-user --u prine
+1682177346184:follow-user --u toto
+1682177388542:follow-user --u rooks
+1682177472949:follow-user --u navneet
+1682177485882:follow-user --u cara
+1682177510305:show-news-feed sortOrder 'followed_users'
+1682177622168:show-news-feed sortOrder 'myass'
+1682177733628:login --u giffe --p nahipagta
+1682177743388:login --u giffe --p nahipata
+1682177759363:show-news-feed --sortOrder 'followed_users'
+1682177796945:show-news-feed --sortOrder 'timestamp'
+1682177926291:login --u giffe --p nahipata
+1682177943576:show-news-feed --sortOrder 'timestamp'
+1682177970609:help
+1682177997662:comment-on-post --id 7 --text 'nic pic der'
+1682178027153:show-comments-on-post --id 7
+1682178208662:show-comments-on-post --id 4
+1682178256173:show-comments-on-post --id 7
+1682178271229:show-news-feed -sortOrder 'followed_users'
+1682178280301:show-news-feed --sortOrder 'followed_users'
+1682178327579:show-comments-on-post --id 7
+1682178352138:show-news-feed --sortOrder 'followed_users'
+1682178363900:show-comments-on-post --id 4
+1682178433272:logout
+1682178446136:login --u giffe --p nahipata
+1682178472101:show-news-feed --sortOrder 'followed_users'
+1682178478967:show-comments-on-post --id 7
+1682178762719:login --u giffe --p nahipata
+1682178785853:show-news-feed --sortOrder 'followed_users'
+1682178800352:show-comments-on-post --id 7
+1682179253122:login --u giffe --p nahipata
+1682179278217:show-news-feed --sortOrder 'followed_users'
+1682179293238:show-comment-on-post --id 7
+1682179329806:show-comments-on-post --id 7
+1682179413610:login --u giffe --p nahipata
+1682179438203:show-news-feed -sortOrder 'followed_users'
+1682179450393:show-news-feed --sortOrder 'followed_users'
+1682179483678:show-comments-on-post --id 4
+1682179497504:help
+1682179540479:up-vote-comment --id 4
+1682179562878:show-news-feed --sortOrder 'followed_users'
+1682179651626:show-comments-on-post --id 4
+1682181501371:login --u giffe --p nahipata
+1682181533029:show-news-feed --sortOrder 'followed_users'
+1682181556820:show-comments-on-post --id 4
+1682181573180:show-comments-on-post --id 7
+1682181631117:show-news-feed --sortedOrder 'followed_users'
+1682181646193:show-news-feed --sortOrder 'followed_users'
+1682181662454:show-comments-on-post --id 7
+1682181720015:login --u prine --p nahipata
+1682181727728:logout
+1682181734972:login --u prine --p nahipata
+1682181753521:show-news-feed --sortedOrder 'timestamp'
+1682181763562:show-news-feed --sortOrder 'timestamp'
+1682181793289:show-news-feed --sortOrder 'followed_users'
+1682182938675:help
+1682183060969:signup --u pallava --e hello@mymail.com --p nahipata
+1682183101479:login --u pallava --p 'nahipagta'
+1682183116156:login --u pallava --p 'nahipata'
+1682183142902:help
+1682183274441:show-news-feed --sortOrder 'followed_user'
+1682183284898:show-news-feed --sortOrder 'followed_users'
+1682183375250:follow-user --u 'navneet'
+1682183406713:follow-user --u 'cara'
+1682183427733:help
+1682183495071:show-news-feed --sortOrder 'timestamp'
+1682183576425:show-comments-on-post --id 7
+1682183606597:help
+1682183628269:up-vote-comment --id 8
+1682191832671:login --u pallava --p nahipata
+1682191839596:help
+1682191858175:show-news-feed --sortOrder 'followed_users'
+1682191895509:help
+1682191940938:down-vote-post --id 7
+1682191980048:stacktrace
+1682194414850:login --u cara --p nahipata
+1682194427484:login --u cara --p lemonlaw
+1682194445055:show-news-feed --sortOrder 'followed_users'
+1682194455034:logout
+1682194471140:login --u pallava --p nahipata
+1682194480328:show-news-feed --sortOrder 'followed_users'
+1682194487394:help
+1682194501054:down-vote-post --id 7
+1682194518187:show-news-feed --sortOrder 'followed_users'
+1682194557781:up-vote-post --id 7
+1682194575467:show-news-feed --sortOrder 'followed_users'

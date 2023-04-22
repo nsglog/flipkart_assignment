@@ -36,6 +36,11 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query(value = "select * from post where user_id in (:id) order by comment_count desc ",nativeQuery = true)
     List<Post> getAllPostSortedByCommentCount(@Param(value = "id") List<Long> followedUsersId);
 
-    @Query(value = "select * from post where user_id in (:id) order by created_on",nativeQuery = true)
+    @Query(value = "select * from post where user_id in (:id) order by created_on desc",nativeQuery = true)
     List<Post> getAllPostSortedByTimeStamp(@Param(value = "id") List<Long> followedUsersId);
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update post set vote_count = vote_count - 1 where id = ?1", nativeQuery = true)
+    void decreasePostVoteCount(long id);
 }

@@ -1,12 +1,8 @@
 package jobs.scaler.scaler_flipkart_assignment.services;
 
+import jobs.scaler.scaler_flipkart_assignment.repositories.*;
 import jobs.scaler.scaler_flipkart_assignment.shellcontroller.Commands;
 import jobs.scaler.scaler_flipkart_assignment.models.*;
-import jobs.scaler.scaler_flipkart_assignment.repositories.CommentRepository;
-import jobs.scaler.scaler_flipkart_assignment.repositories.PostRepository;
-import jobs.scaler.scaler_flipkart_assignment.repositories.UserRepository;
-import jobs.scaler.scaler_flipkart_assignment.repositories.VoteRepository;
-import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -14,35 +10,33 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-@Getter
 public class UserService {
-
-    Scanner scanner = new Scanner(System.in);
 
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
-    private final VoteRepository voteRepository;
+    private final CommentVoteRepository commentVoteRepository;
+    private final PostVoteRepository postVoteRepository;
     private final UserRepository userRepository;
-    private Long postId, commentId, voteId;
+    private Long postId, commentId;
 
     private static final Set<String> sortingOrder = new HashSet<>(Arrays.asList("followed_users", "vote_score", "comment_score","timestamp"));
 
     public UserService(PostRepository postRepository,
                        CommentRepository commentRepository,
-                       VoteRepository voteRepository,
+                       CommentVoteRepository commentVoteRepository,
+                       PostVoteRepository postVoteRepository,
                        UserRepository userRepository) {
         this.postRepository = postRepository;
         this.commentRepository = commentRepository;
-        this.voteRepository = voteRepository;
+        this.commentVoteRepository = commentVoteRepository;
+        this.postVoteRepository = postVoteRepository;
         this.userRepository = userRepository;
 
         postId = postRepository.findLastIndex();
         commentId = commentRepository.findLastIndex();
-        voteId = voteRepository.findLastIndex();
 
         postId = postId == null ?  0L : ++postId;
         commentId = commentId == null ?  0L : ++commentId;
-        voteId = voteId == null ?  0L : ++voteId;
     }
 
     public String createPost(String postText) {
@@ -91,16 +85,10 @@ public class UserService {
             return "post does not exist";
         }
         else {
-            Vote vote = new Vote();
-            vote.setCreatedOn(LocalDateTime.now());
-            vote.setId(voteId);
-            vote.setUser(Commands.getUser());
-            vote.setPost(post.get());
-            vote.setVoteType(VoteType.UP_VOTE);
-            voteRepository.save(vote);
+            PostVote postVote = initializePostVote(post.get());
+            postVote.setVoteType(VoteType.UP_VOTE);
+            postVoteRepository.save(postVote);
             postRepository.increasePostVoteCount(post.get().getId());
-            voteId++;
-
             return "post successfully up voted";
         }
 
@@ -112,17 +100,11 @@ public class UserService {
         if(post.isEmpty()) {
             return "post does not exist";
         }
-
         else {
-            Vote vote = new Vote();
-            vote.setCreatedOn(LocalDateTime.now());
-            vote.setId(voteId);
-            vote.setUser(Commands.getUser());
-            vote.setPost(post.get());
-            vote.setVoteType(VoteType.DOWN_VOTE);
-            voteRepository.save(vote);
-            voteId++;
-
+            PostVote postVote = initializePostVote(post.get());
+            postVote.setVoteType(VoteType.DOWN_VOTE);
+            postVoteRepository.save(postVote);
+            postRepository.decreasePostVoteCount(post.get().getId());
             return "post successfully down voted";
         }
     }
@@ -134,14 +116,14 @@ public class UserService {
         if (post.isEmpty()) {
             System.out.println("post does not exits");
         } else {
-            List<Comment> commentList = commentRepository.getAllCommentsOnPost (id);
+            List<Comment> commentList = commentRepository.getAllCommentsOnPost(id);
 
             for (Comment comment : commentList) {
                 System.out.println("Comment Id: " +comment.getId());
                 System.out.println("Comment text: " +comment.getComment_text());
-                System.out.println("Commented by " +comment.getUser().getUsername());
-                System.out.println("Votes " +comment.getVote_count());
-                System.out.println("Timestamp " +getTimeAgo(comment.getCreatedOn()));
+                System.out.println("Commented by: " +comment.getUser().getUsername());
+                System.out.println("Votes: " +comment.getVote_count());
+                System.out.println("Timestamp: " +getTimeAgo(comment.getCreatedOn()));
                 System.out.println();
             }
         }
@@ -162,33 +144,27 @@ public class UserService {
             reply.setParent_comment(parent_comment.get());
             reply.setComment_text(comment_text);
             Post post = parent_comment.get().getPost();
-            post.setComment_count(post.getComment_count() + 1);
+            postRepository.updateCommentCount(post.getId());
             commentRepository.save(reply);
             commentId++;
 
-            return "reply successfully posted";
+            return "your reply successfully post against comment id "+comment_id;
         }
     }
 
-    public String upvoteComment(long comment_id) {
+    public String upVoteComment(long comment_id) {
 
         Optional<Comment> comment = commentRepository.findById(comment_id);
         if(comment.isEmpty()) {
             return "comment does not exist";
         }
         else {
-            Vote vote = new Vote();
-            vote.setCreatedOn(LocalDateTime.now());
-            vote.setId(voteId);
-            vote.setUser(Commands.getUser());
-            vote.setComment(comment.get());
-            vote.setVoteType(VoteType.UP_VOTE);
-            voteRepository.save(vote);
-            voteId++;
-
+            CommentVote commentVote = initializeCommentVote(comment.get());
+            commentVote.setVoteType(VoteType.UP_VOTE);
+            commentVoteRepository.save(commentVote);
+            commentRepository.increaseCommentVoteCount (comment.get().getId());
             return "comment successfully up voted";
         }
-
     }
 
     public String downVoteComment(long comment_id) {
@@ -198,14 +174,10 @@ public class UserService {
             return "comment does not exist";
         }
         else {
-            Vote vote = new Vote();
-            vote.setCreatedOn(LocalDateTime.now());
-            vote.setId(voteId);
-            vote.setUser(Commands.getUser());
-            vote.setComment(comment.get());
-            vote.setVoteType(VoteType.DOWN_VOTE);
-            voteRepository.save(vote);
-            voteId++;
+            CommentVote commentVote = initializeCommentVote(comment.get());
+            commentVote.setVoteType(VoteType.DOWN_VOTE);
+            commentVoteRepository.save(commentVote);
+            commentRepository.decreaseCommentVoteCount (comment.get().getId());
 
             return "comment down voted successfully";
         }
@@ -217,7 +189,6 @@ public class UserService {
         if(parent_comment.isPresent()) {
             return "no such comment exist";
         }
-
         else {
 
             List<Comment> commentList = commentRepository.getReplies (id);
@@ -257,6 +228,7 @@ public class UserService {
     public void showNewsFeed(String sortBy) {
 
         if(!sortingOrder.contains(sortBy)) {
+            System.out.println("sorting order not found");
             return;
         }
 
@@ -295,5 +267,24 @@ public class UserService {
         } else {
             return "just now";
         }
+    }
+
+    private PostVote initializePostVote (Post post) {
+        PostVote postVote = new PostVote();
+        postVote.setCreatedOn(LocalDateTime.now());
+        PostVotePrimaryKey postVotePrimaryKey= new PostVotePrimaryKey();
+        postVotePrimaryKey.setUser(Commands.getUser());
+        postVotePrimaryKey.setPost(post);
+        postVote.setPostVotePrimaryKey(postVotePrimaryKey);
+        return postVote;
+    }
+
+    private CommentVote initializeCommentVote (Comment comment) {
+        CommentVote commentVote = new CommentVote();
+        commentVote.setCreatedOn(LocalDateTime.now());
+        CommentVotePrimaryKey commentVotePrimaryKey = new CommentVotePrimaryKey();
+        commentVotePrimaryKey.setComment(comment);
+        commentVotePrimaryKey.setUser(Commands.getUser());
+        return commentVote;
     }
 }
