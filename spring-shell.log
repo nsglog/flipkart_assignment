@@ -254,3 +254,59 @@
 1682194518187:show-news-feed --sortOrder 'followed_users'
 1682194557781:up-vote-post --id 7
 1682194575467:show-news-feed --sortOrder 'followed_users'
+1682197328102:login --u pallava --p nahipata
+1682197332473:help
+1682197362709:create-post --text 'this is first post from user pallava'
+1682197394237:show-news-feed --sortOrder 'followed_users'
+1682197481097:up-vote-post --id 8
+1682197496077:up-vote-post --id 7
+1682197502580:up-vote-post --id 6
+1682197511808:up-vote-post --id 5
+1682197546643:show-news-feed --sortOrder 'followed_users'
+1682197582286:show-comments-on-post --id 7
+1682197615455:show-news-feed --sortOrder 'followed_users'
+1682197641063:show-comments-on-post --id 4
+1682197649015:help
+1682197681179:up-vote-comment --id 4
+1682197708095:stacktrace
+1682200897747:login --pallava --p nahipata
+1682200915577:login --u pallava --p nahipata
+1682200933511:help
+1682200998887:show-news-feed --sortOrder 'followed_user'
+1682201013774:show-news-feed --sortOrder 'followed_users'
+1682201052693:down-vote-post --id 7
+1682201077909:show-news-feed --sortOrder 'timestamp'
+1682201114475:show-comments-on-post --id 4
+1682201163557:reply-on-post --id 4 --text 'reply to comment id 4'
+1682201170105:help
+1682201202256:reply-on-comment --id 4 --text 'bad comment'
+1682205226903:login --u pallava --p nahipata
+1682205240941:show-news-feed --sortOrder
+1682205267417:show-news-feed --sortOrder ""
+1682205312054:show-comments-on-post --id 4
+1682205472419:reply-on-comment --id 4 --text 'this is my reply'
+1682205494320:show-news-feed --sortOrder ''
+1682205563988:stacktrace
+1682206035757:login --u navneet --p nahipata
+1682206055252:login --u pallava --p nahipata
+1682206072421:show-news-feed --sortOrder ''
+1682206111123:show-comments-on-post --id 4
+1682206147346:reply-on-comment --id 4 --text 'trying to  reply'
+1682206461163:login --u cara --p lemonlaw
+1682206478665:create-post --text 'this is my first post'
+1682206497998:create-post --text 'this is my second post'
+1682206504088:create-post --text 'this is my third post'
+1682206526337:logout
+1682206540559:login --u pallava --p nahipata
+1682206556410:show-news-feed --sortOrder ''
+1682206595246:comment-on-post --id 0 --text 'this is my comment on post id 0'
+1682206601102:logout
+1682206625706:login --u giffe --p nahipata
+1682206693340:show-news-feed --sortOrder ''
+1682206718392:show-comments-on-post --id 0
+1682206766420:reply-on-comment --id 0 --text 'trying to reply'
+1682206850365:login --u giffe --p nahipata
+1682206866021:show-news-feed --sortOrder ''
+1682206895755:show-comments-on-post --id 0
+1682206918250:reply-on-post --id '0' --text 'trying to reply'
+1682206948713:reply-on-comment --id '0' --text 'trying to reply'

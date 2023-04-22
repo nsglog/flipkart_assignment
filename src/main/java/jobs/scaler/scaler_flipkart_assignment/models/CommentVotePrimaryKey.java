@@ -14,6 +14,7 @@ public class CommentVotePrimaryKey implements Serializable {
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
+
     @JoinColumn(name = "comment_id")
     @ManyToOne
     private Comment comment;

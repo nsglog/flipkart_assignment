@@ -10,13 +10,6 @@ import java.time.LocalDateTime;
 @Setter
 @Table(name = "comment_vote")
 public class CommentVote {
-//    @JoinColumn(name = "user_id")
-//    @ManyToOne
-//    private User user;
-//
-//    @JoinColumn(name = "comment_id")
-//    @ManyToOne
-//    private Comment comment;
 
     @EmbeddedId
     private CommentVotePrimaryKey commentVotePrimaryKey;

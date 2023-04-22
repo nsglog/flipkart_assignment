@@ -130,7 +130,7 @@ public class UserService {
 
     }
 
-    public String replyOnComment(long comment_id, String comment_text) {
+    public String replyOnComment(long comment_id, String reply_text) {
 
         Optional<Comment> parent_comment = commentRepository.findById(comment_id);
         if(parent_comment.isEmpty()) {
@@ -142,13 +142,14 @@ public class UserService {
             reply.setId(commentId);
             reply.setUser(Commands.getUser());
             reply.setParent_comment(parent_comment.get());
-            reply.setComment_text(comment_text);
+            reply.setComment_text(reply_text);
+            reply.setVote_count(0L);
+            commentRepository.save(reply);
             Post post = parent_comment.get().getPost();
             postRepository.updateCommentCount(post.getId());
-            commentRepository.save(reply);
             commentId++;
 
-            return "your reply successfully post against comment id "+comment_id;
+            return "your reply successfully posted against comment id "+comment_id;
         }
     }
 
@@ -227,11 +228,6 @@ public class UserService {
 
     public void showNewsFeed(String sortBy) {
 
-        if(!sortingOrder.contains(sortBy)) {
-            System.out.println("sorting order not found");
-            return;
-        }
-
         User loggedInUser = Commands.getUser();
 
         List<Long> followedUsersId = userRepository.getFollowingUsersId (loggedInUser.getId());
@@ -285,6 +281,7 @@ public class UserService {
         CommentVotePrimaryKey commentVotePrimaryKey = new CommentVotePrimaryKey();
         commentVotePrimaryKey.setComment(comment);
         commentVotePrimaryKey.setUser(Commands.getUser());
+        commentVote.setCommentVotePrimaryKey(commentVotePrimaryKey);
         return commentVote;
     }
 }

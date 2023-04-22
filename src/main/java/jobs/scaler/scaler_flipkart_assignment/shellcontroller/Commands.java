@@ -35,10 +35,10 @@ public class Commands {
         User loginUser = userRepository.findByUsernameAndPassword(u, p);
         if(loginUser != null) {
             user = loginUser;
-            return "Welcome to the social network "+u;
+            return "Welcome "+u;
         }
         else {
-            return "user with username "+u+" does not exist";
+            return "Invalid credentials";
         }
     }
 
@@ -69,12 +69,14 @@ public class Commands {
     public void showNewsFeed (String sortOrder) {
         userService.showNewsFeed(sortOrder);
         canCommentAndVotePost = true;
-        canReplyAndVoteComment=false;
+        canReplyAndVoteComment = false;
     }
 
     @ShellMethod(value = "follow-user --u 'username'")
     @ShellMethodAvailability("userLoggedIn")
     public String followUser (String u) {
+        canCommentAndVotePost = false;
+        canReplyAndVoteComment = false;
         return userService.followUser(u);
     }
 
@@ -83,6 +85,8 @@ public class Commands {
     @ShellMethodAvailability("userLoggedIn")
     public String logout () {
         user = null;
+        canReplyAndVoteComment = false;
+        canCommentAndVotePost = false;
         return "user successfully logged out";
     }
 

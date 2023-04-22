@@ -27,8 +27,8 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn (name = "parent_comment_id")
+    @ManyToOne
+    @JoinColumn (name = "parent_comment_id")
     private Comment parent_comment;
 
     @Column(name = "created_on")

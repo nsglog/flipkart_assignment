@@ -11,16 +11,6 @@ import java.time.LocalDateTime;
 @Table(name = "post_vote")
 public class PostVote {
 
-//    @Id
-//    @JoinColumn(name = "user_id")
-//    @ManyToOne
-//    private User user;
-//
-//    @Id
-//    @JoinColumn(name = "post_id")
-//    @ManyToOne
-//    private Post post;
-
     @EmbeddedId
     private PostVotePrimaryKey postVotePrimaryKey;
 
