@@ -19,8 +19,6 @@ public class UserService {
     private final UserRepository userRepository;
     private Long postId, commentId;
 
-    private static final Set<String> sortingOrder = new HashSet<>(Arrays.asList("followed_users", "vote_score", "comment_score","timestamp"));
-
     public UserService(PostRepository postRepository,
                        CommentRepository commentRepository,
                        CommentVoteRepository commentVoteRepository,
@@ -85,20 +83,21 @@ public class UserService {
             return "post does not exist";
         }
         else {
-
-            if () {
+            PostVote alreadyVoted = postVoteRepository.findByUserAndPost(post.get().getId(), Commands.getUser().getId());
+            if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
+                postVoteRepository.updateVoteType(Commands.getUser().getId(), post_id);
             }
-            else if () {
+            else if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
+                return "you have already up voted this post";
             }
 
             else {
                 PostVote postVote = initializePostVote(post.get(), VoteType.UP_VOTE);
                 postVoteRepository.save(postVote);
                 postRepository.increasePostVoteCount(post.get().getId());
-                return "post successfully up voted";
             }
+            return "post successfully up voted";
         }
-
     }
 
     public String downVotePost(long post_id) {
@@ -110,18 +109,23 @@ public class UserService {
 
         else {
 
-            if () {
+            PostVote alreadyVoted = postVoteRepository.findByUserAndPost(post.get().getId(), Commands.getUser().getId());
 
+            if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
+                postVoteRepository.updateVoteType(Commands.getUser().getId(), post_id);
             }
 
-            else if () {
+            else if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
+                return "you have already down voted this post";
+            }
 
-            } else {
+            else {
                 PostVote postVote = initializePostVote(post.get(), VoteType.DOWN_VOTE);
                 postVoteRepository.save(postVote);
                 postRepository.decreasePostVoteCount(post.get().getId());
-                return "post successfully down voted";
+
             }
+            return "post successfully down voted";
         }
     }
 
