@@ -84,9 +84,12 @@ public class UserService {
         }
         else {
             PostVote alreadyVoted = postVoteRepository.findByUserAndPost(post.get().getId(), Commands.getUser().getId());
+
             if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
-                postVoteRepository.updateVoteType(Commands.getUser().getId(), post_id);
+                postVoteRepository.updateVoteTypeToUpVote(Commands.getUser().getId(), post_id);
+                postRepository.increasePostVoteCount(post.get().getId());
             }
+
             else if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
                 return "you have already up voted this post";
             }
@@ -94,8 +97,10 @@ public class UserService {
             else {
                 PostVote postVote = initializePostVote(post.get(), VoteType.UP_VOTE);
                 postVoteRepository.save(postVote);
-                postRepository.increasePostVoteCount(post.get().getId());
+
             }
+
+            postRepository.increasePostVoteCount(post.get().getId());
             return "post successfully up voted";
         }
     }
@@ -112,7 +117,8 @@ public class UserService {
             PostVote alreadyVoted = postVoteRepository.findByUserAndPost(post.get().getId(), Commands.getUser().getId());
 
             if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
-                postVoteRepository.updateVoteType(Commands.getUser().getId(), post_id);
+                postVoteRepository.updateVoteTypeToDownVote(Commands.getUser().getId(), post_id);
+                postRepository.decreasePostVoteCount(post.get().getId());
             }
 
             else if (alreadyVoted != null && alreadyVoted.getPostVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
@@ -122,9 +128,9 @@ public class UserService {
             else {
                 PostVote postVote = initializePostVote(post.get(), VoteType.DOWN_VOTE);
                 postVoteRepository.save(postVote);
-                postRepository.decreasePostVoteCount(post.get().getId());
 
             }
+            postRepository.decreasePostVoteCount(post.get().getId());
             return "post successfully down voted";
         }
     }
@@ -182,8 +188,10 @@ public class UserService {
         else {
 
             CommentVote alreadyVoted = commentVoteRepository.findByUserAndComment(comment.get().getId(), Commands.getUser().getId());
+
             if(alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
-                commentVoteRepository.updateVoteType(Commands.getUser().getId(), comment_id);
+                commentVoteRepository.updateVoteTypeToUpVote(Commands.getUser().getId(), comment_id);
+                commentRepository.increaseCommentVoteCount(comment.get().getId());
             }
 
             else if (alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
@@ -193,8 +201,9 @@ public class UserService {
             else {
                 CommentVote commentVote = initializeCommentVote(comment.get(), VoteType.UP_VOTE);
                 commentVoteRepository.save(commentVote);
-                commentRepository.increaseCommentVoteCount(comment.get().getId());
             }
+
+            commentRepository.increaseCommentVoteCount(comment.get().getId());
 
             return "comment successfully up voted";
         }
@@ -210,7 +219,8 @@ public class UserService {
 
             CommentVote alreadyVoted = commentVoteRepository.findByUserAndComment(comment.get().getId(), Commands.getUser().getId());
             if(alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
-                commentVoteRepository.updateVoteType(Commands.getUser().getId(), comment_id);
+                commentVoteRepository.updateVoteTypeToDownVote(Commands.getUser().getId(), comment_id);
+                commentRepository.decreaseCommentVoteCount(comment.get().getId());
             }
 
             else if (alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
@@ -220,8 +230,9 @@ public class UserService {
             else {
                 CommentVote commentVote = initializeCommentVote(comment.get(), VoteType.DOWN_VOTE);
                 commentVoteRepository.save(commentVote);
-                commentRepository.increaseCommentVoteCount(comment.get().getId());
             }
+
+            commentRepository.decreaseCommentVoteCount(comment.get().getId());
 
             return "comment successfully down voted";
         }

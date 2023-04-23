@@ -22,6 +22,11 @@ public interface CommentVoteRepository extends JpaRepository<CommentVote, Commen
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update table comment_vote set vote_type = NULL where user_id = ?1 and comment_id = ?2", nativeQuery = true)
-    void updateVoteType(long id, long commentId);
+    @Query(value = "update table comment_vote set vote_type = 'UP_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
+    void updateVoteTypeToUpVote(long id, long commentId);
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update table comment_vote set vote_type = 'DOWN_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
+    void updateVoteTypeToDownVote(long id, long commentId);
 }
