@@ -310,3 +310,70 @@
 1682206895755:show-comments-on-post --id 0
 1682206918250:reply-on-post --id '0' --text 'trying to reply'
 1682206948713:reply-on-comment --id '0' --text 'trying to reply'
+1682230842243:signup --u truss --e truss@mymail.com --p nahipata
+1682230861793:signup --u lizz --e lizz@mymail.com --p nahipata
+1682230874474:signup --u hazel --e hz@mymail.com --p nahipata
+1682230885599:signup --u keech --e kch@mymail.com --p nahipata
+1682230970497:login --u rooks --p nahipata
+1682230983663:login --u rooks --p lemonlaw
+1682231008523:create-post --text 'this is first post from rooks'
+1682231023396:create-post --text 'this is second post from rooks'
+1682231029842:create-post --text 'this is third post from rooks'
+1682231042075:create-post --text 'this is fourth post from rooks'
+1682231066588:logout
+1682231083333:login --u truss --p nahipata
+1682231105985:create-post --text 'this is first post from truss'
+1682231116970:create-post --text 'this is second post from truss'
+1682231125513:create-post --text 'this is third post from truss'
+1682231132539:create-post --text 'this is fourth post from truss'
+1682231186715:logout
+1682231195381:login --u loco --p lemonlaw
+1682231219566:create-post --text 'this is first post from loco'
+1682231237712:create-post --text 'this is second post from loco'
+1682231245178:create-post --text 'this is third post from loco'
+1682231255457:create-post --text 'this is fourth post from loco'
+1682231309923:create-post --text 'this is fifth post from loco'
+1682231361019:follow-user cara
+1682231371751:show-news-feed --sortOrder ''
+1682231387922:show-comments-on --id 0
+1682231401952:show-comments-on-post --id 0
+1682231416709:help
+1682231443116:reply-on-comment --id 0 --text 'this is my reply'
+1682231491417:help
+1682231505041:up-vote-comment --id 0
+1682231532577:down-vote-comment --id 0
+1682240564226:login --u giffe --p nahipata
+1682240577725:show-news-feed --sortOrder ''
+1682240612074:comment-on-post --id 6 --text 'this is a comment posted by giffe on post made by rooks'
+1682240632106:show-comments-on-post --id 6
+1682240646829:up-vote-comment --id 1
+1682241914459:login --u giffe --p lemonlaw
+1682241926080:login --u giffe --p nahipata
+1682241960591:show-news-feed --sortOrder ''
+1682241978068:show-comments-on-post --id 4
+1682242006134:show-news-feed --sortOrder ''
+1682242022676:show-comments-on-post --id 6
+1682242039198:up-vote-comment --id 1
+1682242470004:stacktrace
+1682242605462:login --u giffe --p nahipata
+1682242619092:show-news-feed --sortOrder ''
+1682242631611:show-comments-on-post --id 6
+1682242657587:up-vote-comment --id 1
+1682242889708:login --u giffe --p nahipata
+1682242912457:show-news-feed --sortedOrder ''
+1682242923964:show-news-feed --sortOrder ''
+1682242934279:show-comments-on-post --id 6
+1682242946449:up-vote-comment --id 1
+1682244206568:login --u giffe --p nahipata
+1682244217404:show-news-feed --sortOrder ''
+1682244227842:show-comments-on --id 6
+1682244263570:show-comments-on-post --id 6
+1682244289842:up-vote-comment --id 1
+1682244557549:login --u giffe --p nahipata
+1682244593716:show-news-feed --sortOrder ''
+1682244607523:show-comments-on-post --id 6
+1682244617167:up-vote-comment --id 1
+1682244752483:login --u giffe --p nahipata
+1682244768614:show-news-feed --sortOrder ''
+1682244788841:show-comments-on-post --id 6
+1682244826476:up-vote-comment --id 1

@@ -18,4 +18,8 @@ public class CommentVotePrimaryKey implements Serializable {
     @JoinColumn(name = "comment_id")
     @ManyToOne
     private Comment comment;
+
+    @Column(name = "vote_type")
+    @Enumerated(EnumType.STRING)
+    private VoteType voteType;
 }

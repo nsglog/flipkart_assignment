@@ -1,8 +1,6 @@
 package jobs.scaler.scaler_flipkart_assignment.models;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +19,8 @@ public class PostVotePrimaryKey implements Serializable {
     @JoinColumn(name = "post_id")
     @ManyToOne
     private Post post;
+
+    @Column(name = "vote_type")
+    @Enumerated(EnumType.STRING)
+    private VoteType voteType;
 }

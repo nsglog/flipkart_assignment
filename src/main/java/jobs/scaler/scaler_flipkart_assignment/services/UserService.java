@@ -85,11 +85,18 @@ public class UserService {
             return "post does not exist";
         }
         else {
-            PostVote postVote = initializePostVote(post.get());
-            postVote.setVoteType(VoteType.UP_VOTE);
-            postVoteRepository.save(postVote);
-            postRepository.increasePostVoteCount(post.get().getId());
-            return "post successfully up voted";
+
+            if () {
+            }
+            else if () {
+            }
+
+            else {
+                PostVote postVote = initializePostVote(post.get(), VoteType.UP_VOTE);
+                postVoteRepository.save(postVote);
+                postRepository.increasePostVoteCount(post.get().getId());
+                return "post successfully up voted";
+            }
         }
 
     }
@@ -100,12 +107,21 @@ public class UserService {
         if(post.isEmpty()) {
             return "post does not exist";
         }
+
         else {
-            PostVote postVote = initializePostVote(post.get());
-            postVote.setVoteType(VoteType.DOWN_VOTE);
-            postVoteRepository.save(postVote);
-            postRepository.decreasePostVoteCount(post.get().getId());
-            return "post successfully down voted";
+
+            if () {
+
+            }
+
+            else if () {
+
+            } else {
+                PostVote postVote = initializePostVote(post.get(), VoteType.DOWN_VOTE);
+                postVoteRepository.save(postVote);
+                postRepository.decreasePostVoteCount(post.get().getId());
+                return "post successfully down voted";
+            }
         }
     }
 
@@ -160,10 +176,22 @@ public class UserService {
             return "comment does not exist";
         }
         else {
-            CommentVote commentVote = initializeCommentVote(comment.get());
-            commentVote.setVoteType(VoteType.UP_VOTE);
-            commentVoteRepository.save(commentVote);
-            commentRepository.increaseCommentVoteCount (comment.get().getId());
+
+            CommentVote alreadyVoted = commentVoteRepository.findByUserAndComment(comment.get().getId(), Commands.getUser().getId());
+            if(alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
+                commentVoteRepository.updateVoteType(Commands.getUser().getId(), comment_id);
+            }
+
+            else if (alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
+                return "you have already up voted this comment";
+            }
+
+            else {
+                CommentVote commentVote = initializeCommentVote(comment.get(), VoteType.UP_VOTE);
+                commentVoteRepository.save(commentVote);
+                commentRepository.increaseCommentVoteCount(comment.get().getId());
+            }
+
             return "comment successfully up voted";
         }
     }
@@ -175,12 +203,23 @@ public class UserService {
             return "comment does not exist";
         }
         else {
-            CommentVote commentVote = initializeCommentVote(comment.get());
-            commentVote.setVoteType(VoteType.DOWN_VOTE);
-            commentVoteRepository.save(commentVote);
-            commentRepository.decreaseCommentVoteCount (comment.get().getId());
 
-            return "comment down voted successfully";
+            CommentVote alreadyVoted = commentVoteRepository.findByUserAndComment(comment.get().getId(), Commands.getUser().getId());
+            if(alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.UP_VOTE)) {
+                commentVoteRepository.updateVoteType(Commands.getUser().getId(), comment_id);
+            }
+
+            else if (alreadyVoted != null && alreadyVoted.getCommentVotePrimaryKey().getVoteType().equals(VoteType.DOWN_VOTE)) {
+                return "you have already down voted this comment";
+            }
+
+            else {
+                CommentVote commentVote = initializeCommentVote(comment.get(), VoteType.DOWN_VOTE);
+                commentVoteRepository.save(commentVote);
+                commentRepository.increaseCommentVoteCount(comment.get().getId());
+            }
+
+            return "comment successfully down voted";
         }
     }
 
@@ -265,22 +304,25 @@ public class UserService {
         }
     }
 
-    private PostVote initializePostVote (Post post) {
+    private PostVote initializePostVote (Post post, VoteType voteType) {
         PostVote postVote = new PostVote();
         postVote.setCreatedOn(LocalDateTime.now());
         PostVotePrimaryKey postVotePrimaryKey= new PostVotePrimaryKey();
         postVotePrimaryKey.setUser(Commands.getUser());
         postVotePrimaryKey.setPost(post);
+        postVotePrimaryKey.setVoteType(voteType);
         postVote.setPostVotePrimaryKey(postVotePrimaryKey);
+
         return postVote;
     }
 
-    private CommentVote initializeCommentVote (Comment comment) {
+    private CommentVote initializeCommentVote (Comment comment, VoteType voteType) {
         CommentVote commentVote = new CommentVote();
         commentVote.setCreatedOn(LocalDateTime.now());
         CommentVotePrimaryKey commentVotePrimaryKey = new CommentVotePrimaryKey();
         commentVotePrimaryKey.setComment(comment);
         commentVotePrimaryKey.setUser(Commands.getUser());
+        commentVotePrimaryKey.setVoteType(voteType);
         commentVote.setCommentVotePrimaryKey(commentVotePrimaryKey);
         return commentVote;
     }

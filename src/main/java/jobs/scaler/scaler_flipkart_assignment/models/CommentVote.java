@@ -16,8 +16,4 @@ public class CommentVote {
 
     @Column(name = "created_on")
     private LocalDateTime createdOn;
-
-    @Column(name = "vote_type")
-    @Enumerated(EnumType.STRING)
-    private VoteType voteType;
 }
