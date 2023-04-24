@@ -1,13 +1,13 @@
-package jobs.scaler.scaler_flipkart_assignment;
+package project.news_feed_cli;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ScalerFlipkartAssignmentApplication {
+public class NewsFeedCliApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ScalerFlipkartAssignmentApplication.class, args);
+        SpringApplication.run(NewsFeedCliApplication.class, args);
     }
 
 }

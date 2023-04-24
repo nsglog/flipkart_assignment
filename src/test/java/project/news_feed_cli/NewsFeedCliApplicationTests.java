@@ -1,10 +1,10 @@
-package jobs.scaler.scaler_flipkart_assignment;
+package project.news_feed_cli;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ScalerFlipkartAssignmentApplicationTests {
+class NewsFeedCliApplicationTests {
 
     @Test
     void contextLoads() {

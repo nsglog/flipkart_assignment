@@ -377,3 +377,50 @@
 1682244768614:show-news-feed --sortOrder ''
 1682244788841:show-comments-on-post --id 6
 1682244826476:up-vote-comment --id 1
+1682327266517:help
+1682327282116:login --u giffe --p nahipata
+1682327304302:show-news-feed --sortOrder ''
+1682327323552:show-comments-on-post --id 6
+1682327335313:up-vote-comment --id 1
+1682327352343:down-vote-comment --id 1
+1682327364131:stacktrace
+1682327559433:login --u giffe --p nahipata
+1682327569335:show-news-feed --sortOrder ''
+1682327580389:show-comments-on-post --id 6
+1682327594547:down-vote-comment --id 6
+1682327608027:down-vote-comment --id 1
+1682327624739:show-news-feed -sortOrder ''
+1682327638752:show-news-feed --sortOrder ''
+1682327649347:show-comments-on-post --id 6
+1682327854978:show-news-feed --sortOrder ''
+1682327867120:up-vote-post --id 5
+1682327901796:stacktrace
+1682327978328:login --u giffe --p nahipata
+1682327992858:show-news-feed --sortOrder ''
+1682328001857:up-vote-post --id 5
+1682328015243:show-news-feed --sortOrder ''
+1682328027686:down-vote-post --id 5
+1682328034897:stacktracce
+1682328041533:stacktrace
+1682328096901:down-vote-post --id 5
+1682328105722:stacktrace
+1682328190334:login --u giffe --p nahipata
+1682328199716:show-news-feed --sortOrder ''
+1682328214269:down-vote-post --id 5
+1682328227166:show-news-feed --sortOrder ''
+1682328249177:down-vote-post --id 5
+1682328408003:show-comments-on-post --id 6
+1682328438313:reply-on-comment --id 1 --text 'testing this cli app with a comment on a post'
+1682328472385:show-comments-on-post --id 6
+1682328485807:show-news-feed --sortOrder ''
+1682328503000:show-comments-on-post --id 6
+1682328549955:help
+1682328569894:show-replies-on-comment --id 1
+1682328738006:login --u giffe --p nahipata
+1682328747318:show-news-feed --sortOrder ''
+1682328770547:show-comments-on-post --id 5
+1682328790753:show-news-feed --sortOrder ''
+1682328810149:show-comments-on-post --id 6
+1682328823007:show-replies-on-comment --id 1
+1682330286331:login --u giffe --p nahipata
+1682330305545:show-news-feed --sortOrder ''

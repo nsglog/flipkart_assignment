@@ -1,6 +1,6 @@
-package jobs.scaler.scaler_flipkart_assignment.repositories;
+package project.news_feed_cli.repositories;
 import jakarta.transaction.Transactional;
-import jobs.scaler.scaler_flipkart_assignment.models.Post;
+import project.news_feed_cli.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

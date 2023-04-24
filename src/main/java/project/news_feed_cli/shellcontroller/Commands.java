@@ -1,8 +1,8 @@
-package jobs.scaler.scaler_flipkart_assignment.shellcontroller;
+package project.news_feed_cli.shellcontroller;
 
-import jobs.scaler.scaler_flipkart_assignment.models.User;
-import jobs.scaler.scaler_flipkart_assignment.repositories.UserRepository;
-import jobs.scaler.scaler_flipkart_assignment.services.UserService;
+import project.news_feed_cli.models.User;
+import project.news_feed_cli.repositories.UserRepository;
+import project.news_feed_cli.services.UserService;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;

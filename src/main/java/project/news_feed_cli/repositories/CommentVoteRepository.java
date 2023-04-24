@@ -1,11 +1,13 @@
-package jobs.scaler.scaler_flipkart_assignment.repositories;
+package project.news_feed_cli.repositories;
 
 import jakarta.transaction.Transactional;
-import jobs.scaler.scaler_flipkart_assignment.models.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import project.news_feed_cli.models.CommentVote;
+import project.news_feed_cli.models.CommentVotePrimaryKey;
+import project.news_feed_cli.models.VoteType;
 
 import java.time.LocalDateTime;
 
@@ -22,11 +24,11 @@ public interface CommentVoteRepository extends JpaRepository<CommentVote, Commen
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update table comment_vote set vote_type = 'UP_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
+    @Query(value = "update comment_vote set vote_type = 'UP_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
     void updateVoteTypeToUpVote(long id, long commentId);
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update table comment_vote set vote_type = 'DOWN_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
+    @Query(value = "update comment_vote set vote_type = 'DOWN_VOTE' where user_id = ?1 and comment_id = ?2", nativeQuery = true)
     void updateVoteTypeToDownVote(long id, long commentId);
 }

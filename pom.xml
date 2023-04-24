@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>jobs.scaler</groupId>
-    <artifactId>scaler_flipkart_assignment</artifactId>
+    <artifactId>news_feed_cli</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>scaler_flipkart_assignment</name>
     <description>scaler_flipkart_assignment</description>

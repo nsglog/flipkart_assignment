@@ -1,4 +1,4 @@
-package jobs.scaler.scaler_flipkart_assignment;
+package project.news_feed_cli;
 
 public class TODO {
 

@@ -1,4 +1,4 @@
-package jobs.scaler.scaler_flipkart_assignment.models;
+package project.news_feed_cli.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

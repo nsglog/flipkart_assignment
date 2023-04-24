@@ -1,8 +1,8 @@
-package jobs.scaler.scaler_flipkart_assignment.services;
+package project.news_feed_cli.services;
 
-import jobs.scaler.scaler_flipkart_assignment.repositories.*;
-import jobs.scaler.scaler_flipkart_assignment.shellcontroller.Commands;
-import jobs.scaler.scaler_flipkart_assignment.models.*;
+import project.news_feed_cli.models.*;
+import project.news_feed_cli.repositories.*;
+import project.news_feed_cli.shellcontroller.Commands;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -97,7 +97,6 @@ public class UserService {
             else {
                 PostVote postVote = initializePostVote(post.get(), VoteType.UP_VOTE);
                 postVoteRepository.save(postVote);
-
             }
 
             postRepository.increasePostVoteCount(post.get().getId());
@@ -241,7 +240,7 @@ public class UserService {
     public String showRepliesOnComment(long id) {
 
         Optional<Comment> parent_comment = commentRepository.findById(id);
-        if(parent_comment.isPresent()) {
+        if(parent_comment.isEmpty()) {
             return "no such comment exist";
         }
         else {
@@ -249,8 +248,8 @@ public class UserService {
             List<Comment> commentList = commentRepository.getReplies (id);
 
             for(Comment comment : commentList) {
-                System.out.println("Reply by : " + comment.getId());
-                System.out.println("replied by : " + comment.getUser().getUsername());
+                System.out.println("Reply id : " + comment.getId());
+                System.out.println("Replied by : " + comment.getUser().getUsername());
                 System.out.println("Text : " + comment.getComment_text());
                 System.out.println("Score : " + comment.getVote_count());
                 System.out.println("Timestamp : " + getTimeAgo(comment.getCreatedOn()));
