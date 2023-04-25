@@ -15,7 +15,7 @@ spring.datasource.password = your_mysql_password.
  
 4) Run the following command : 
 ```bash
-> create database newsfeed;
+> create database news_feed;
 > mysql -u your_mysql_username -p news_feed < schema.sql;
 ```
 5) Now run springboot application using command: `./mvnw spring-boot:run`
