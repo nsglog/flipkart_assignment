@@ -44,19 +44,19 @@ A console based news feed which can simulate a social network
        * down-vote-comment: down-vote-comment --id 'comment_id'
  
        Some of the commands might not be available at all the time . for eg :
-          All commands which results in changing the properties of post like comment-on-post, up-vote-post, down-vote-post are only available
-          once you have requested to see all the posts by using command show-news-feed --sortOrder 'any sort order'.
+          All the commands which results in changing the properties of post like comment-on-post, up-vote-post, down-vote-post are only available
+          once you have requested to see all the posts by using the command show-news-feed --sortOrder 'any sort order'.
  
-          Similarly, all commands which results in changing the properties of a comment like up-vote-comment, down-vote-comment, reply-on-comment 
-          and show-replies-on-comment are only available once you have requested to see all the comments which are created against a post .
+          Similarly, all the commands which results in changing the properties of a comment like up-vote-comment, down-vote-comment, reply-on-comment 
+          and show-replies-on-comment are only available once you have requested to see all the comments which are created made on that post .
  
-          login and signup are only available commands when the application starts.
+          login and signup are the only available commands when the application starts/bootstraps.
  
           logout command is only available once a user has logged in.
  
           /*   
-            To check the list of available commands at any moment, enter command 'help'. This will list all the commands available to use 
-            with conditions. Some of the commands will be marked with '*' while some are not . So those commands which are currently 
+            To check the list of available commands at any instance, enter command 'help'. This will list all the commands available to use 
+            with conditions. Some of the commands will be marked with '*' while some are not. So, the commands which are currently 
             available to use are 'NOT' marked with '*'. 
           */
  
